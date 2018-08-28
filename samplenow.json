@@ -1,7 +1,6 @@
 {
     "env": {
-        "SECRET": "xyz",
-        "ANOTHER_SECRET": "abc",
-        "SECRET_FAIL": "avd"
+        "MONGO_PROD": "blabla",
+        "MONGO_DEV": "mongodb://localhost/mongo-randomquotes"
     }
 }
