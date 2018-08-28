@@ -8,7 +8,7 @@ const Quotes = require("./models/quotes.js");
 const allQuotes = require('./quotes.js');
 require('now-env');
 
-mongoose.connect(`${process.env.MONGO_DEV}`,{ useNewUrlParser: true });
+mongoose.connect(`${process.env.MONGO_PROD}`,{ useNewUrlParser: true });
 
 const port = "3000";
 
