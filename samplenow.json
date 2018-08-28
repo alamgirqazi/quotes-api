@@ -1,0 +1,7 @@
+{
+    "env": {
+        "SECRET": "xyz",
+        "ANOTHER_SECRET": "abc",
+        "SECRET_FAIL": "avd"
+    }
+}
