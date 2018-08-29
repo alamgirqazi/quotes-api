@@ -5,12 +5,13 @@ const http = require("http");
 const app = express();
 const mongoose = require("mongoose");
 const Quotes = require("./models/quotes.js");
-const allQuotes = require('./quotes.js');
 require('now-env');
+var cors = require('cors')
 
+app.use(cors())
 mongoose.connect(`${process.env.MONGO_PROD}`,{ useNewUrlParser: true });
 
-const port = "3000";
+const port = "3001";
 
 app.set("port", port);
 
@@ -53,6 +54,22 @@ app.get("/", function(req, res) {
       const item = quotes[Math.floor(Math.random()*quotes.length)];
 
       data.data = item;
+      res.send(data);
+    });
+});
+
+// GET Single Quote
+app.get("/daily", function(req, res) {
+  Quotes.find({})
+    .exec(function(err, quotes) {
+      if(err){
+        res.send(err);
+      }
+      const date = new Date().getDate();
+      const data = {};
+      data.status =200;
+      data.message = "1 Quote retrieved";
+      data.data = quotes[date];
       res.send(data);
     });
 });
